@@ -6,6 +6,7 @@
       name="productName"
       class="border rounded-lg p-1 bg-neutral-100/20"
       placeholder="T-Shirt, Kleid, Schuhe ..."
+      required
     />
 
     <label for="price" class="mb-1 mt-8">Preis in Euro</label>
@@ -14,6 +15,7 @@
       name="price"
       class="border rounded-lg p-1 bg-neutral-100/20"
       placeholder="50, 40, 3 ..."
+      required
     />
 
     <label for="productDescription" class="mb-1 mt-8">Beschreibung</label>
@@ -21,6 +23,7 @@
       name="productDescription"
       class="border rounded-lg h-28 p-1 bg-neutral-100/20"
       maxlength="600"
+      required
     ></textarea>
   </div>
 </template>
