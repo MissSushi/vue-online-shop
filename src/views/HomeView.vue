@@ -55,9 +55,11 @@ getData();
           <td class="my-2 max-w-[5ch] truncate">{{ entry["description"] }}</td>
           <td>
             <div class="flex gap-4 justify-end my-2">
-              <button class="text-slate-700 text-sm hover:text-slate-900">
-                Bearbeiten
-              </button>
+              <RouterLink
+                :to="`/products/update/${entry.id}`"
+                class="text-slate-700 text-sm hover:text-slate-900"
+                >Bearbeiten</RouterLink
+              >
               <button class="text-red-500 text-sm hover:text-red-600">
                 Löschen
               </button>
