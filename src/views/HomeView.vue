@@ -33,6 +33,29 @@ onBeforeUnmount(() => {
   abortController.abort();
 });
 getData();
+
+async function deleteProduct(id: number) {
+  if (!window.confirm("Möchten Sie das Produkt wirklich löschen?")) return;
+  else {
+    try {
+      const response = await fetch(`http://localhost/api/items/${id}`, {
+        method: "DELETE",
+        body: JSON.stringify({
+          productId: id,
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error("Response not ok.");
+      }
+      window.location.href = "/";
+    } catch (error) {
+      if (error instanceof Error) {
+        console.error(`error message: ${error.message}`);
+      }
+    }
+  }
+}
 </script>
 
 <template>
@@ -60,7 +83,10 @@ getData();
                 class="text-slate-700 text-sm hover:text-slate-900"
                 >Bearbeiten</RouterLink
               >
-              <button class="text-red-500 text-sm hover:text-red-600">
+              <button
+                @click="deleteProduct(entry.id)"
+                class="text-red-500 text-sm hover:text-red-600"
+              >
                 Löschen
               </button>
             </div>

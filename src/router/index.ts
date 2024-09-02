@@ -21,7 +21,6 @@ const router = createRouter({
       path: "/products/update/:id",
       name: "update-product",
       component: UpdateProductView,
-      // component: () => import('@/views/AddProductView.vue')
     },
   ],
 });
